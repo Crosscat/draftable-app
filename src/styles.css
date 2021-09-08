@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+body { color: white; background-color: rgb(44, 44, 44); }
+
+label { color: white; }
+
+input { margin-bottom: 10px; }
+
+.form-group { margin: 15px; }
+
+button { color: white; background-color:rgb(141, 42, 255); }

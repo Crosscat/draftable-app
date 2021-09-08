@@ -1,0 +1,36 @@
+<form class="form-group" [formGroup]="form">
+
+  <label>Player Name </label>
+  <input class="form-control" formControlName="playerName">
+
+  <label>Draft Id </label>
+  <input class="form-control" formControlName="draftId">
+
+  <ng-container *ngIf="(isSettingUpNewDraft$ | async)">
+    <label>Cube</label>
+    <input ng2FileSelect type="file" [uploader]="cubeUploader">
+
+    <label>Cards Per Player </label>
+    <input class="form-control" formControlName="cardsPerPlayer">
+
+    <label>Draft Type </label>
+    <input class="form-control" formControlName="draftType">
+    
+    <label>Min. Players </label>
+    <input class="form-control" formControlName="minPlayers">
+    
+    <label>Max. Players </label>
+    <input class="form-control" formControlName="maxPlayers">
+
+    <br>
+    <button class="btn" (click)="createNewDraft()">Create Draft</button>
+    <button class="btn" (click)="closeCreateDraftMenu()">Cancel</button>
+  </ng-container>
+
+  <ng-container *ngIf="!(isSettingUpNewDraft$ | async)">
+    <br>
+    <button class="btn" (click)="openCreateDraftMenu()">Create New Draft</button>
+    <button class="btn" (click)="joinExistingDraft()">Join Existing Draft</button>
+  </ng-container>
+
+</form>
