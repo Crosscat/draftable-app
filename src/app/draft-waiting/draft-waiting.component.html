@@ -1,0 +1,9 @@
+<marquee>waiting for draft to start</marquee>
+<div class="player-list">
+  <h3>Players</h3>
+  <div *ngFor="let player of players$ | async" class="player-list-item">
+    {{player}}
+  </div>
+  <br>
+  <button *ngIf="ownsDraft" (click)="startDraft()" class="btn">Start Draft</button>
+</div>
