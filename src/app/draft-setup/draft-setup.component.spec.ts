@@ -3,6 +3,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { DraftSetupState } from '../state/draft-setup.reducer';
 
 import { DraftSetupComponent } from './draft-setup.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 describe('DraftSetupComponent', () => {
   let component: DraftSetupComponent;
@@ -12,14 +13,20 @@ describe('DraftSetupComponent', () => {
     settingUpDraft: false,
     ownsDraft: false,
     draftId: '',
+    joinedDraft: false,
+    players: [],
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DraftSetupComponent ],
+      declarations: [DraftSetupComponent],
+      imports: [
+        ReactiveFormsModule
+      ],
       providers: [
         provideMockStore({ initialState }),
-      ]
+        FormBuilder,
+      ],
     })
     .compileComponents();
   });

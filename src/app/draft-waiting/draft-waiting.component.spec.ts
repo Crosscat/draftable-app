@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DraftWaitingComponent } from './draft-waiting.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('DraftWaitingComponent', () => {
   let component: DraftWaitingComponent;
@@ -8,7 +9,10 @@ describe('DraftWaitingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DraftWaitingComponent ]
+      declarations: [ DraftWaitingComponent ],
+      providers: [
+        provideMockStore(),
+      ]
     })
     .compileComponents();
   });

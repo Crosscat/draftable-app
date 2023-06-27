@@ -34,11 +34,11 @@ export class DraftSetupComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       playerName: ['', Validators.required],
       draftId: ['', Validators.required],
-      cube: [null],
-      cardsPerPlayer: [45],
-      draftType: ['Grid'],
-      minPlayers: ['2'],
-      maxPlayers: ['2'],
+      cube: null,
+      cardsPerPlayer: 45,
+      draftType: 'Grid',
+      minPlayers: 2,
+      maxPlayers: 2,
     });
 
     const reader = new FileReader();

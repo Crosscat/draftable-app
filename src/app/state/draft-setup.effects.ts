@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { Actions, createEffect, Effect, ofType } from "@ngrx/effects";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, mergeMap, tap } from "rxjs/operators";
 
@@ -20,10 +20,10 @@ export class DraftSetupEffects {
 
           return this.draftService.createNewDraft(action.draftRequest).pipe(
             map((response) => ({ type: actions.createNewDraftSuccess.type, draft: response })),
-            catchError(() => of({ type: actions.createNewDraftFailure.type })),
           );
         }),
       )),
+      catchError(() => of({ type: actions.createNewDraftFailure.type })),
     ));
     
   public joinExistingDraft$ = createEffect(() =>
@@ -35,10 +35,10 @@ export class DraftSetupEffects {
 
           return this.draftService.joinExistingDraft(action.draftId).pipe(
             map((response) => ({ type: actions.joinExistingDraftSuccess.type, draft: response })),
-            catchError(() => of({ type: actions.joinExistingDraftFailure.type })),
           );
         }),
       )),
+      catchError(() => of({ type: actions.joinExistingDraftFailure.type })),
     ));
 
   public waitForDraftToBeginAsHost$ = createEffect(() =>
